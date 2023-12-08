@@ -8,7 +8,7 @@ function App() {
   },[])
 
   const apiTesting =()=>{
-    fetchDataFromApi("movie/popular")
+    fetchDataFromApi("/movie/popular")
        .then((res)=>{
         console.log(res);
        })
