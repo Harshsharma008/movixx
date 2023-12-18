@@ -37,7 +37,7 @@ const HeroBanner = () => {
                 </div>
             )}
 
-            <div className="opacity-layer"></div> // for merging layer
+            <div className="opacity-layer"></div>          
             <ContentWrapper>
                 <div className="heroBannerContent">
                     <span className="title">Welcome.</span>
