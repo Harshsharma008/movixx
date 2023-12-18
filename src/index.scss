@@ -30,7 +30,7 @@ body {
   background-color: var(--black);
 }
 
-::-webkit-scrollbar {
+::-webkit-scrollbar {  // remove the scrollbar for good view
   display: none;
 }
 

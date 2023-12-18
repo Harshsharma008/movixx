@@ -1,8 +1,16 @@
 import { fetchDataFromApi } from './Utils/api' // in {} because we use the export of the single method
 import { useEffect,useState } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getApiConfigration } from './store/homeSlice'
+import Header from "./Components/header/Header"
+import Footer from "./Components/footer/Footer"
+import Home from './pages/home/Home'
+import Details from './pages/details/Details'
+import Explore from './pages/explore/Explore'
+import SearchResult from './pages/searchResult/SearchResult'
+import PageNotFound from './pages/404/PageNotFound'
 
 
 function App() {
@@ -12,23 +20,36 @@ function App() {
   )
   console.log(url);
   useEffect(()=>{
-    apiTesting();
+    fetchApiConfig();
   },[])
 
-  const apiTesting =()=>{
-    fetchDataFromApi("/movie/popular")
+  const fetchApiConfig =()=>{
+    fetchDataFromApi("/configuration")
        .then((res)=>{
         console.log(res);
-        dispatch(getApiConfigration(res));
+
+        const url = {
+          backdrop: res.images.secure_base_url + "original",
+          poster: res.images.secure_base_url + "original",
+          profile: res.images.secure_base_url + "original",
+
+        };
+        dispatch(getApiConfigration(url));
        })
   }
 
   return (
-    <>
-      <div className='App'> App
-      {url?.total_pages}
-      </div>
-    </>
+    <BrowserRouter>
+    <Header/>
+     <Routes>
+     <Route path="/" element={<Home />} />
+                <Route path="/:mediaType/:id" element={<Details />} />
+                <Route path="/search/:query" element={<SearchResult />} />
+                <Route path="/explore/:mediaType" element={<Explore />} />
+                <Route path="*" element={<PageNotFound />} />
+     </Routes>
+     <Footer/>
+    </BrowserRouter>
   )
 }
 
