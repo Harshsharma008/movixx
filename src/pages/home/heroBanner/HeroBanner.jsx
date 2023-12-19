@@ -7,8 +7,7 @@ import ContentWrapper from "../../../Components/contentWrapper/ContentWrapper";
 
 import useFetch from "../../../hooks/UseFetch";
 
-// import Img from "../../../components/lazyLoadImage/Img";
-// import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
+
 
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
