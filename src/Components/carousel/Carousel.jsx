@@ -4,14 +4,14 @@ import {
     BsFillArrowRightCircleFill,
 } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";  
 import dayjs from "dayjs";
 
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import Img from "../lazyLoadImage/Img";
 import PosterFallback from "../../assets/no-poster.png";
 import CircleRating from "../circleRating/CircleRating";
-// import Genres from "../genres/Genres";
+import Genres from "../genres/Genres";
 
 import "./style.scss";
 
@@ -86,9 +86,9 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                                 1
                                             )}
                                         />
-                                        {/* <Genres
+                                        <Genres
                                             data={item.genre_ids.slice(0, 2)}
-                                        /> */}
+                                        />
                                     </div>
                                     <div className="textBlock">
                                         <span className="title">
