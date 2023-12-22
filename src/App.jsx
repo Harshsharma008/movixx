@@ -1,4 +1,4 @@
-import { fetchDataFromApi } from './Utils/api' // in {} because we use the export of the single method
+import { fetchDataFromApi } from './utils/api' // in {} because we use the export of the single method
 import { useEffect,useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
