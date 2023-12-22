@@ -2,12 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "./style.scss";
-import Img from "../../../Components/lazyLoadImage/Img"
+
+import useFetch from "../../../hooks/useFetch";
+
+import Img from "../../../Components/lazyLoadImage/Img";
 import ContentWrapper from "../../../Components/contentWrapper/ContentWrapper";
-
-import useFetch from "../../../hooks/UseFetch";
-
-
 
 const HeroBanner = () => {
     const [background, setBackground] = useState("");
@@ -18,7 +17,8 @@ const HeroBanner = () => {
 
     useEffect(() => {
         const bg =
-            url.backdrop + data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
+            url.backdrop +
+            data?.results?.[Math.floor(Math.random() * 20)]?.backdrop_path;
         setBackground(bg);
     }, [data]);
 
@@ -30,13 +30,13 @@ const HeroBanner = () => {
 
     return (
         <div className="heroBanner">
-            {!loading && (                // when the loading condition is false then only the bg is shown
+            {!loading && (
                 <div className="backdrop-img">
                     <Img src={background} />
                 </div>
             )}
 
-            <div className="opacity-layer"></div>          
+            <div className="opacity-layer"></div>
             <ContentWrapper>
                 <div className="heroBannerContent">
                     <span className="title">Welcome.</span>
@@ -58,4 +58,5 @@ const HeroBanner = () => {
         </div>
     );
 };
+
 export default HeroBanner;
