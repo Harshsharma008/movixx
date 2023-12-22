@@ -87,7 +87,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                             )}
                                         />
                                         <Genres
-                                            data={item.genre_ids.slice(0, 2)}
+                                            data={item.genre_ids.slice(0, 2)} // we set the limit to the genres to 2
                                         />
                                     </div>
                                     <div className="textBlock">
